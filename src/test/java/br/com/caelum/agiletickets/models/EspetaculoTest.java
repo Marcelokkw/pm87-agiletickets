@@ -9,6 +9,15 @@ import org.joda.time.LocalTime;
 import org.junit.Test;
 
 public class EspetaculoTest {
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testaGeracaoDeExcecao() throws Exception {
+		Espetaculo espetaculo = new Espetaculo();
+		LocalDate dia = new LocalDate();
+		LocalDate diaSeguinte =  dia.minusDays(1);
+		LocalTime hora = new LocalTime();
+		List<Sessao> sessoes = espetaculo.criaSessoes(dia, diaSeguinte, hora, Periodicidade.DIARIA);
+	}
 	 
 	@Test
 	public void testaCriar1SessaoComInicioEFimNoMesmoDia() throws Exception {

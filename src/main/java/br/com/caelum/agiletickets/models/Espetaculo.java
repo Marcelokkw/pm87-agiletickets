@@ -98,12 +98,16 @@ public class Espetaculo {
      * 
      * Repare que a data da primeira sessao é sempre a data inicial.
      */
-	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
+	
+	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) throws IllegalArgumentException {
 		// ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
+		if (inicio.isAfter(fim)) {
+			throw new IllegalArgumentException();
+		}
 		List<Sessao> sessoes = new ArrayList<Sessao>();
-		int iterador = periodicidade.getQuantidadeDeDias();
+		int incremento = periodicidade.getQuantidadeDeDias();
 		
-        for (int i = 0; i <= Days.daysBetween(inicio, fim).getDays(); i+=iterador) {
+        for (int i = 0; i <= Days.daysBetween(inicio, fim).getDays(); i+=incremento) {
 	       	Sessao sessao = new Sessao();
 	    	sessao.setInicio(inicio.plusDays(i).toDateTime(horario));
 	    	sessoes.add(sessao);
