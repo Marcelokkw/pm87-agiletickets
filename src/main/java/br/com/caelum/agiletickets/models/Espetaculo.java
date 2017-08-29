@@ -103,10 +103,6 @@ public class Espetaculo {
 		List<Sessao> sessoes = new ArrayList<Sessao>();
 		
 		if (periodicidade.equals(periodicidade.SEMANAL)) {
-			Sessao sessao = new Sessao();
-    		sessao.setInicio(inicio.toDateTime(horario));
-    		sessoes.add(sessao);
-		} else if (periodicidade.equals(periodicidade.SEMANAL) && Days.daysBetween(inicio, fim).getDays()+1 >= 7) {
 			for (int i = 0; i <= Days.daysBetween(inicio, fim).getDays(); i+=7) {
 	        	Sessao sessao = new Sessao();
 	    		sessao.setInicio(inicio.plusDays(i).toDateTime(horario));
