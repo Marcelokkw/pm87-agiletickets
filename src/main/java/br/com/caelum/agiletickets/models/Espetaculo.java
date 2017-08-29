@@ -101,10 +101,7 @@ public class Espetaculo {
 	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
 		// ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
 		List<Sessao> sessoes = new ArrayList<Sessao>();
-		int iterador = 1;
-		if (periodicidade.equals( periodicidade.SEMANAL)) {
-			iterador = 7;
-		}
+		int iterador = periodicidade.getQuantidadeDeDias();
 		
         for (int i = 0; i <= Days.daysBetween(inicio, fim).getDays(); i+=iterador) {
 	       	Sessao sessao = new Sessao();
