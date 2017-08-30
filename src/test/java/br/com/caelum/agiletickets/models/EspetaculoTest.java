@@ -14,7 +14,7 @@ public class EspetaculoTest {
 	public void testaGeracaoDeExcecao() throws Exception {
 		Espetaculo espetaculo = new Espetaculo();
 		LocalDate dia = new LocalDate();
-		LocalDate diaSeguinte =  dia.plusDays(1);//dia.minusDays(1);
+		LocalDate diaSeguinte =  dia.minusDays(1);
 		LocalTime hora = new LocalTime();
 		List<Sessao> sessoes = espetaculo.criaSessoes(dia, diaSeguinte, hora, Periodicidade.DIARIA);
 	}
